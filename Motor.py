@@ -34,6 +34,7 @@ class Motor:
             self.myMotor.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE)
         else:                                   #Fahre rueckwaerts
             self.myMotor.step(steps, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.DOUBLE)
+        return steps
     def stop():
         motor.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
         motor.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
