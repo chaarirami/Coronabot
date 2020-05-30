@@ -19,7 +19,7 @@ class Motor:
         self.stepsPerRevolution = stepsPerRevolution
         self.port = port
         self.myMotor = self.motor.getStepper(stepsPerRevolution, port)
-        
+
     def drive(self, distance):
         self.distance = distance
         self.myMotor.setSpeed(self.rpm)
@@ -36,13 +36,3 @@ class Motor:
         self.rpm = rpm
     def getDistance(self):
         return distance
-    def driveInStep(self,steps): #Um den Roboter zu drehen, nur nach vorne
-        self.myMotor.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
-
-'''def turnOffMotors():
-    mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
-atexit.register(turnOffMotors)
-'''
