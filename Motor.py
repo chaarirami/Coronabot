@@ -1,3 +1,4 @@
+#author: Fabian Gondeck
 #-*- coding: utf-8 -*-
 #!/usr/bin/python
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_StepperMotor
@@ -8,7 +9,7 @@ import math
 
 
 class Motor:
-    motor = Adafruit_MotorHAT()
+    motor = Adafruit_MotorHAT(addr=0x60) #Positionnierung des Roboters
     myMotor = motor.getStepper(200,2)
     stepsPerRevolution = 0
     rpm =30    #60 round per Minutes

@@ -1,3 +1,4 @@
+#author: Rami Chaari
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 from Motor import Motor
@@ -22,15 +23,20 @@ class MoveRobot:
     def turn(self, angle):
         """Steps per Revolution = 360⁰ / Step Angle, Basis Winkel bei uns = 1.8°"""
         print("turning")
+        #1 Umdrehung = 98 Schritte = 360 Grad
+        steps = angle*98/360
+        self.MotorLeft.drive(steps)
+        '''
         self.angle = self.angle + angle #Wert vom Winkel abspeichern
         if angle > 0:   #nach rechts drehen
             while angle > 0:
                 self.MotorLeft.driveInStep(1)
-                self.angle = self.angle - (360 / self.MotorLeft.stepsPerRevolution) #=1.8° bei spr=200
+                angle = angle - (360 / self.MotorLeft.stepsPerRevolution) #=1.8° bei spr=200
         elif angle < 0: #nach links drehen
             while angle < 0:
                 self.MotorRight.driveInStep(1)
                 self.angle = self.angle + (360 / self.MotorRight.stepsPerRevolution)
+        '''
     def setSpeed(self, rpm):
         self.MotorLeft.setSpeed(rpm)
         self.MotorRight.setSpeed(rpm)
