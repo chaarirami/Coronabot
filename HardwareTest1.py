@@ -1,4 +1,5 @@
-''' Hardware Test 1'''
+# Hardware Test 1
+# 20 cm nach vorne Fahren
 
 from MoveRobot import MoveRobot
 

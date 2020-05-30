@@ -3,23 +3,22 @@
 from Motor import Motor
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor, Adafruit_StepperMotor
 import threading
+from multiprocessing import Process, current_process
+
+        
 class MoveRobot:
     angle = 0
     distance = 0
-    MotorLeft = Motor(200,2)    #spr,port
-    MotorRight = Motor(200,1)   #spr,port
+    MotorLeft = Motor(200,1)    #spr,port
+    MotorRight = Motor(200,2)   #spr,port
     
 
     def drive(self, distance):
         print("Robot driving")
-        if distance > 0:
-            dir = Adafruit_MotorHAT.FORWARD
-        elif distance < 0:
-            dir = Adafruit_MotorHAT.BACKWARD
-        st1 = threading.Thread(target=self.stepper_worker, args=(self.MotorLeft,self.MotorLeft.drive(distance) , dir, Adafruit_MotorHAT.SINGLE))
-        st1.start()
-        st2 = threading.Thread(target=self.stepper_worker, args=(self.MotorRight,self.MotorRight.drive(distance) , dir, Adafruit_MotorHAT.SINGLE))
-        st1.start()
+        process1 = Process(target = self.MotorLeft.drive, args=(distance,))
+        process1.start()
+        process2 = Process(target = self.MotorRight.drive, args=(distance,))                   
+        process2.start()
     def turn(self, angle):
         """Steps per Revolution = 360⁰ / Step Angle, Basis Winkel bei uns = 1.8°"""
         print("turning")
@@ -36,7 +35,7 @@ class MoveRobot:
         self.MotorLeft.setSpeed(rpm)
         self.MotorRight.setSpeed(rpm)
         print("Speed is set")
-    def stepper_worker(stepper, numsteps, direction, style):
-    #print("Steppin!")
-        stepper.step(numsteps, direction, style)
-    #print("Done")
+    def stop(self):
+        self.MotorLeft.stop()
+        self.MotorRight.stop()
+    

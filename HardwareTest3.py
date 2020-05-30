@@ -1,6 +1,8 @@
-from MoveRobot import MoveRobot
+# Hardware Test 3
+# author: Rami Chaari
+# +90 Grad im Uhrzeigersinn drehen
 
-''' Hardware Test 3'''
+from MoveRobot import MoveRobot
 
 bot = MoveRobot()
 bot.setSpeed(200)
