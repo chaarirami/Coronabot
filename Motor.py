@@ -35,4 +35,4 @@ class Motor:
     def setSpeed(self, rpm):
         self.rpm = rpm
     def getDistance(self):
-        return distance
+        return self.distance
