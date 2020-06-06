@@ -15,6 +15,7 @@ class Motor:
     rpm =30    #60 round per Minutes
     port = 0    #Port Number
     distance = 0
+    steps = 0
     def __init__(self, stepsPerRevolution, port):
         self.stepsPerRevolution = stepsPerRevolution
         self.port = port
@@ -29,10 +30,12 @@ class Motor:
             self.myMotor.step(steps, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.DOUBLE)
         else:                                   #Fahre rueckwaerts
             self.myMotor.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE)
-        return steps
+        self.steps = self.steps + steps
     def stop(self):
         self.myMotor.setSpeed(1)
     def setSpeed(self, rpm):
         self.rpm = rpm
     def getDistance(self):
-        return distance
+        return self.distance
+    def getSteps:
+        return self.steps
