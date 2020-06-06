@@ -25,7 +25,7 @@ class Motor:
     def drive(self, distance):                                                              # definiere Methode 'drive'
         self.distance = distance
         self.myMotor.setSpeed(self.rpm)
-        revolutions = abs(distance/math.pi*0.1)                                             # Verhältnis Distanz zu Umfang der Raeder (mit Raddurchmesser = 100mm) 
+        revolutions = abs(distance/math.pi*0.1)                                             # Verhaeltnis Distanz zu Umfang der Raeder (mit Raddurchmesser = 100mm) 
         steps = int(2*self.stepsPerRevolution*revolutions)
         if distance > 0:                                                                    # Fahre vorwaerts
             self.myMotor.step(steps, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.DOUBLE)
