@@ -14,7 +14,7 @@ class Motor:
     steps = 0                                                                               # Anzahl Schritte 
     stepsPerRevolution = 0                                                                  # Anzahl Schritte pro Umdrehung
     rpm =30                                                                                 # 30 Umdrehungen pro Minute
-    port = 0                                                                                # Port Number
+    port = 0                                                                                # Port-Nummer
     distance = 0                                                                            # zu fahrende Distanz in m
     
     def __init__(self, stepsPerRevolution, port):                                           # Constructor der Klasse Motor
