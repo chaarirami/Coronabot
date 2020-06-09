@@ -28,9 +28,9 @@ class Motor:
         revolutions = abs(distance/math.pi*0.1)                                             # Verhaeltnis Distanz zu Umfang der Raeder (mit Raddurchmesser = 100mm) 
         steps = int(2*self.stepsPerRevolution*revolutions)
         if distance > 0:                                                                    # Fahre vorwaerts
-            self.myMotor.step(steps, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.DOUBLE)
+            self.myMotor.step(steps, Adafruit_MotorHAT.BACKWARD, Adafruit_MotorHAT.SINGLE)
         else:                                                                               # Fahre rueckwaerts
-            self.myMotor.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.DOUBLE)
+            self.myMotor.step(steps, Adafruit_MotorHAT.FORWARD, Adafruit_MotorHAT.SINGLE)
         return steps
         self.steps = self.steps + steps
     def stop(self):                                                                         # definiere Methode 'stop'
@@ -42,5 +42,5 @@ class Motor:
     def getDistance(self):                                                                  # definiere Methode 'getDistance'
         return self.distance                                                                # Rueckgabewert distance
         
-    def getSteps:                                                                           # definiere Methode 'getSteps'
+    def getSteps():                                                                           # definiere Methode 'getSteps'
         return self.steps                                                                   # Rueckgabewert steps

@@ -19,13 +19,12 @@ class MoveRobot:
         print("Robot driving")
         process1 = Process(target = self.MotorLeft.drive, args=(distance,))
         process1.start()
-        self.stepsLeftMotor = self.stepsLeftMotor + self
         process2 = Process(target = self.MotorRight.drive, args=(distance,))
         process2.start()
-        self.stepsLeftMotor = self.MotorLeft.getSteps
-        self.stepsRightMotor = self.MotorRight.getSteps
+        #self.stepsLeftMotor = self.MotorLeft.getSteps
+        #self.stepsRightMotor = self.MotorRight.getSteps
     def turn(self, angle):
-        """Steps per Revolution = 360⁰ / Step Angle, Basis Winkel bei uns = 1.8°"""
+        #Steps per Revolution = 360 / Step Angle, Basis Winkel bei uns = 1.8
         print("turning")
         #1 Umdrehung = 98 Schritte = 360 Grad
         steps = angle*98/360
@@ -35,7 +34,7 @@ class MoveRobot:
         self.MotorLeft.setSpeed(rpm)
         self.MotorRight.setSpeed(rpm)
         print("Speed is set")
-    def getStepsLeftMotor:
+    def getStepsLeftMotor(self):
         return self.stepsLeftMotor
-    def getStepsRightMotor:
+    def getStepsRightMotor(self):
         return self.stepsRightMotor
