@@ -38,3 +38,13 @@ class MoveRobot:
         return self.stepsLeftMotor
     def getStepsRightMotor(self):
         return self.stepsRightMotor
+    def driveInSteps(self, steps):
+        print("Robot driving")
+        process1 = Process(target = self.MotorLeft.driveInSteps, args=(steps,))
+        process1.start()
+        process2 = Process(target = self.MotorRight.driveInSteps, args=(steps,))
+        process2.start()
+    def driveInStepsLeftMotor(self,steps):
+        self.MotorLeft.driveInSteps(steps)
+    def driveInStepsRightMotor(self,steps):
+        self.MotorRight.driveInSteps(steps)
